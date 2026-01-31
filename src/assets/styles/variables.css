@@ -1,0 +1,59 @@
+/* Google Fonts Import - MUST BE FIRST */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Exo+2:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Primary Colors - Cyberpunk Neon */
+  --primary: #00F5FF;
+  --secondary: #7C7CFF;
+  --accent: #FF10F0;
+  --warning: #FFB800;
+  
+  /* Background Colors */
+  --bg-main: #0B0F1A;
+  --bg-secondary: #151B2E;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  
+  /* Glass Effects */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-blur: blur(12px);
+  
+  /* Glows & Shadows */
+  --glow-primary: 0 0 25px rgba(0, 245, 255, 0.6);
+  --glow-secondary: 0 0 25px rgba(124, 124, 255, 0.6);
+  --glow-accent: 0 0 30px rgba(255, 16, 240, 0.7);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  --gradient-neon: linear-gradient(135deg, #00F5FF 0%, #7C7CFF 50%, #FF10F0 100%);
+  --gradient-border: linear-gradient(135deg, var(--primary), var(--accent));
+  
+  /* Typography */
+  --font-display: 'Orbitron', 'Rajdhani', sans-serif;
+  --font-body: 'Exo 2', 'Rajdhani', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-Index */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+}

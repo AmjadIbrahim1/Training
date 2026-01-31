@@ -1,0 +1,426 @@
+/* ==================== TREE CONTAINER ==================== */
+.tree-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background: var(--bg-main);
+  overflow: hidden;
+}
+
+/* Background Effects */
+.tree-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  animation: float 8s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+  bottom: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* ==================== TREE ROOTS LAYOUT ==================== */
+.tree-roots-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: var(--spacing-xl);
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.tree-root {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Root Node Container */
+.root-node-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.root-connector {
+  width: 3px;
+  height: 40px;
+  background: linear-gradient(180deg, var(--primary) 0%, transparent 100%);
+  margin-top: var(--spacing-sm);
+  box-shadow: var(--glow-primary);
+}
+
+/* ==================== TREE GRID ==================== */
+.tree-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .tree-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .tree-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==================== TREE NODE ==================== */
+.tree-node-wrapper {
+  width: 100%;
+}
+
+.tree-node {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.tree-node::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-neon);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.tree-node.hovered::before {
+  opacity: 0.15;
+}
+
+/* Animated Border Glow */
+.node-border-glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient-neon);
+  border-radius: var(--radius-md);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity var(--transition-normal);
+}
+
+.tree-node.hovered .node-border-glow {
+  opacity: 0.6;
+  animation: borderPulse 2s ease-in-out infinite;
+}
+
+@keyframes borderPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+}
+
+/* ==================== NODE AVATAR ==================== */
+.node-avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.node-avatar {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 3px solid var(--primary);
+  box-shadow: var(--glow-primary);
+  transition: all var(--transition-normal);
+  background: var(--bg-secondary);
+}
+
+.node-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-ring {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-full);
+  background: var(--gradient-border);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.tree-node.hovered .avatar-ring {
+  opacity: 1;
+  animation: ringRotate 3s linear infinite;
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==================== NODE CONTENT ==================== */
+.node-content {
+  text-align: center;
+}
+
+.node-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 var(--spacing-xs) 0;
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
+  transition: all var(--transition-normal);
+  letter-spacing: 0.5px;
+}
+
+.node-title {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 var(--spacing-sm) 0;
+  font-weight: 400;
+}
+
+.node-level {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-sm);
+}
+
+.level-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--gradient-primary);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--bg-main);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(0, 245, 255, 0.3);
+}
+
+/* ==================== PARTICLE EFFECTS ==================== */
+.node-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+/* ==================== DECORATIVE ELEMENTS ==================== */
+.tree-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.deco-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  height: 1px;
+  opacity: 0.2;
+}
+
+.line-1 {
+  top: 30%;
+  left: 0;
+  right: 0;
+}
+
+.line-2 {
+  top: 70%;
+  left: 0;
+  right: 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .tree-container {
+    padding: var(--spacing-md);
+  }
+
+  .tree-roots-container {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .tree-root {
+    max-width: 100%;
+  }
+
+  .tree-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .node-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .node-name {
+    font-size: 1rem;
+  }
+}
+/* إضافات لتكبير صورة TreeNode - أضف هذا في نهاية tree.css */
+
+.node-avatar-container {
+  margin-bottom: 20px;
+  width: 140px;
+  height: 140px;
+  position: relative;
+}
+
+.node-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid rgba(0, 245, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.node-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-ring {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 245, 255, 0.3);
+  pointer-events: none;
+  animation: ringPulse 2s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .node-avatar-container {
+    width: 110px;
+    height: 110px;
+  }
+
+  .node-avatar {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .node-avatar-container {
+    width: 90px;
+    height: 90px;
+  }
+
+  .node-avatar {
+    width: 90px;
+    height: 90px;
+  }
+}

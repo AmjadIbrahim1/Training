@@ -1,0 +1,133 @@
+.athkar-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  max-width: 400px;
+  width: calc(100% - 40px);
+}
+
+.athkar-container {
+  background: linear-gradient(135deg, rgba(11, 15, 26, 0.98) 0%, rgba(20, 30, 48, 0.98) 100%);
+  border: 2px solid rgba(0, 245, 255, 0.3);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 
+    0 10px 40px rgba(0, 245, 255, 0.2),
+    0 0 80px rgba(124, 124, 255, 0.1),
+    inset 0 0 30px rgba(0, 245, 255, 0.05);
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.athkar-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(0, 245, 255, 0.03) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.athkar-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.6));
+}
+
+.athkar-content {
+  flex: 1;
+  direction: rtl;
+}
+
+.athkar-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 500;
+  text-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+  font-family: 'Arial', sans-serif;
+}
+
+.athkar-close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.athkar-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(0, 245, 255, 0.5);
+  color: #00F5FF;
+  transform: rotate(90deg);
+}
+
+.athkar-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00F5FF, #7C7CFF);
+  transform-origin: left;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .athkar-notification {
+    top: 10px;
+    right: 10px;
+    max-width: calc(100% - 20px);
+    width: calc(100% - 20px);
+  }
+
+  .athkar-container {
+    padding: 15px;
+  }
+
+  .athkar-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .athkar-icon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .athkar-text {
+    font-size: 0.9rem;
+  }
+  
+  .athkar-container {
+    padding: 12px;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,53 @@
+cyberpunk-tree-app/
+│
+├── public/                    # Static assets
+│   └── vite.svg
+│
+├── src/                       # Source code
+│   ├── assets/
+│   │   └── styles/
+│   │       └── variables.css  # Global CSS variables (colors, fonts, etc.)
+│   │
+│   ├── components/
+│   │   ├── common/            # Reusable components (Button, Card, etc.)
+│   │   ├── landing/
+│   │   │   ├── landing.css
+│   │   │   ├── LandingCard.jsx    # Individual card component
+│   │   │   └── LandingGrid.jsx    # Cards layout
+│   │   └── tree/
+│   │       ├── tree.css
+│   │       ├── Tree.jsx           # Main tree container
+│   │       └── TreeNode.jsx       # Individual node component
+│   │
+│   ├── data/
+│   │   ├── landingCards.js    # Landing page cards data
+│   │   └── treeData.js        # Team tree structure data
+│   │
+│   ├── pages/
+│   │   ├── Landing/
+│   │   │   ├── landingPage.css
+│   │   │   └── LandingPage.jsx
+│   │   ├── Level0/
+│   │   │   └── Level0Page.jsx
+│   │   ├── Camp/
+│   │   │   └── CampPage.jsx
+│   │   ├── Contests/
+│   │   │   └── ContestsPage.jsx
+│   │   └── Codeforces/
+│   │       └── CodeforcesPage.jsx
+│   │
+│   ├── routes/
+│   │   └── AppRoutes.jsx      # React Router configuration
+│   │
+│   ├── App.jsx                # Main app component
+│   ├── App.css                # Global app styles
+│   ├── main.jsx               # Entry point
+│   └── index.css              # Base reset styles
+│
+├── index.html                 # HTML template
+├── vite.config.js            # Vite configuration
+├── package.json              # Dependencies
+├── README.md                 # Full documentation
+├── QUICKSTART.md             # Quick start guide
+├── STRUCTURE.txt             # This file
+└── .gitignore                # Git ignore rules
