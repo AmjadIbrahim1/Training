@@ -27,7 +27,7 @@ const LandingPage = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             style={{ fontSize: '4.5rem' }}
           >
-            <span className="title-gradient">تدريب القاضي</span>
+            <span className="title-gradient">أهلاً بكم في تدريب القاضي</span>
           </motion.h1>
 
           <motion.p 
@@ -36,7 +36,7 @@ const LandingPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            أتقن البرمجة وتنافس في التحديات
+           منصة متخصصة في البرمجة التنافسية وتطوير مهارات حل المشكلات
           </motion.p>
 
           <motion.div 
