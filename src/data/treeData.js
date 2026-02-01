@@ -76,9 +76,9 @@ export const treeData = {
         },
         {
           id: 'node9',
-          name: 'زهراء نور',
+          name: 'الزهراء نور',
           avatar: zahraaImg,
-          linkedin: 'https://www.linkedin.com/in/zhra-nour-70047b380'
+          linkedin: 'https://www.linkedin.com/in/al-zahraa-nour-70047b380/'
         },
         {
           id: 'node10',
