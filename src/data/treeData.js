@@ -1,7 +1,6 @@
 // Import local images
 import mohamedAlkadyImg from '../assets/images/people/mohamed-alkady.jpg';
 import khadijaImg from '../assets/images/people/khadija.jpg';
-import mohamedSayedImg from '../assets/images/people/mohamed-sayed.jpg';
 import amjadImg from '../assets/images/people/amjad.jpg';
 import ghadaImg from '../assets/images/people/ghada.jpg';
 import dianaImg from '../assets/images/people/diana.jpg';
@@ -20,12 +19,6 @@ export const treeData = {
           name: 'رؤى هشام',
           avatar: null,
           linkedin: 'https://www.linkedin.com/in/roaa-hisham-sharafeldin-5182b9280/'
-        },
-        {
-          id: 'node4',
-          name: 'محمد سيد',
-          avatar: mohamedSayedImg,
-          linkedin: 'https://www.linkedin.com/in/mohamed-sayed-099130372/'
         },
         {
           id: 'node5',
