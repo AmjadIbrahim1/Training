@@ -123,6 +123,43 @@
   font-size: 1.3rem;
 }
 
+/* ✅ Badge "كويز رقم X" جنب لينك الكويز */
+.quiz-number-badge {
+  margin-right: auto;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--bg-main);
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+/* ✅ Box بيلف المصادر بـ border وعنوان */
+.quiz-resources-box {
+  border: 1.5px solid rgba(0, 245, 255, 0.4);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  position: relative;
+  margin-top: var(--spacing-sm);
+}
+
+.quiz-resources-title {
+  position: absolute;
+  top: -13px;
+  right: 16px;
+  background: var(--bg-main);
+  padding: 2px 10px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 245, 255, 0.4);
+  white-space: nowrap;
+}
+
 .quiz-resources {
   display: flex;
   flex-direction: column;

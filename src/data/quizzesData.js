@@ -4,6 +4,7 @@ export const quizzesData = [
     title: 'Quiz Data Types',
     emoji: '🧠',
     videoUrl: 'https://www.youtube.com/watch?v=A56hgpnEj8w',
+    quizNumber: 1,
     resources: []
   },
   {
@@ -11,6 +12,7 @@ export const quizzesData = [
     title: 'Quiz Loop',
     emoji: '🧠',
     videoUrl: 'https://www.youtube.com/watch?v=_X2CSIe6Qd8&pp=2AbfDw%3D%3D',
+    quizNumber: 2,
     resources: [
       {
         title: 'المصدر الأول',

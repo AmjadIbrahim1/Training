@@ -88,23 +88,29 @@ const QuizzesPage = () => {
                       >
                         <span className="button-icon">📝</span>
                         <span className="button-text">لينك الكويز</span>
+                        {quiz.quizNumber && (
+                          <span className="quiz-number-badge">كويز رقم {quiz.quizNumber}</span>
+                        )}
                       </motion.button>
                     )}
 
                     {quiz.resources && quiz.resources.length > 0 && (
-                      <div className="quiz-resources">
-                        {quiz.resources.map((resource, idx) => (
-                          <motion.button
-                            key={idx}
-                            className="quiz-resource-button"
-                            onClick={() => openLink(resource.url)}
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            <span className="resource-icon">📄</span>
-                            <span className="resource-text">{resource.title}</span>
-                          </motion.button>
-                        ))}
+                      <div className="quiz-resources-box">
+                        <div className="quiz-resources-title">كويز رقم 3</div>
+                        <div className="quiz-resources">
+                          {quiz.resources.map((resource, idx) => (
+                            <motion.button
+                              key={idx}
+                              className="quiz-resource-button"
+                              onClick={() => openLink(resource.url)}
+                              whileHover={{ scale: 1.03 }}
+                              whileTap={{ scale: 0.98 }}
+                            >
+                              <span className="resource-icon">📄</span>
+                              <span className="resource-text">{resource.title}</span>
+                            </motion.button>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>

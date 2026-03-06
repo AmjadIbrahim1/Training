@@ -23,7 +23,7 @@ export const landingCards = [
   },
   {
     id: 'contests',
-    title: 'المسابقات',
+    title: 'Contests',
     description: 'تنافس وأظهر مهاراتك',
     icon: '🏆',
     route: '/contests',

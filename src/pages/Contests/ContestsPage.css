@@ -52,11 +52,18 @@
   border: 2px solid rgba(255, 16, 240, 0.3);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
-  opacity: 0.6;
+  transition: all var(--transition-normal);
 }
 
 .contest-card.coming-soon {
+  opacity: 0.6;
   border-color: rgba(255, 255, 255, 0.2);
+}
+
+.contest-card.available:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 40px rgba(255, 16, 240, 0.3);
 }
 
 .contest-header {
@@ -80,6 +87,30 @@
   text-shadow: 0 0 10px rgba(255, 16, 240, 0.3);
 }
 
+/* ✅ زرار لينك الكونتست */
+.contest-link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 14px 24px;
+  width: 100%;
+  background: var(--gradient-neon);
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--bg-main);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 16, 240, 0.4);
+  transition: all var(--transition-normal);
+}
+
+.contest-link-button:hover {
+  box-shadow: 0 6px 25px rgba(255, 16, 240, 0.6);
+}
+
 .coming-soon-badge-large {
   position: relative;
   display: inline-block;
@@ -96,8 +127,38 @@
   font-size: 1rem;
 }
 
+.badge-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  opacity: 0.2;
+  filter: blur(10px);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
 .contests-note {
-  background: linear-gradient(135deg, rgba(255, 16, 240, 0.1), rgba(124, 124, 255, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 16, 240, 0.1),
+    rgba(124, 124, 255, 0.1)
+  );
   border: 1px solid rgba(255, 16, 240, 0.3);
   border-radius: var(--radius-md);
   padding: var(--spacing-lg);
@@ -107,6 +168,19 @@
   justify-content: center;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.note-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.note-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.6;
 }
 
 .contests-main-background {
@@ -123,11 +197,11 @@
   .contests-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .contests-header-icon {
     font-size: 3.5rem;
   }
-  
+
   .contests-note {
     flex-direction: column;
     text-align: center;

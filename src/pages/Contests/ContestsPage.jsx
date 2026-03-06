@@ -1,11 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { quizzesData } from '../../data/quizzesData';
+import { contestsData } from '../../data/contestsData';
 import './ContestsPage.css';
 
 const ContestsPage = () => {
   const navigate = useNavigate();
+
+  const openLink = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <div className="contests-page">
@@ -55,38 +59,40 @@ const ContestsPage = () => {
           </p>
 
           <div className="contests-grid">
-            {quizzesData.map((contest, index) => (
+            {contestsData.map((contest, index) => (
               <motion.div
                 key={contest.id}
-                className={`contest-card ${contest.comingSoon ? 'coming-soon' : ''}`}
+                className={`contest-card ${contest.comingSoon ? 'coming-soon' : 'available'}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
               >
                 <div className="contest-header">
                   <div className="contest-emoji">{contest.emoji}</div>
-                  <h3 className="contest-title">{contest.title.replace('Quiz', 'Contest')}</h3>
+                  <h3 className="contest-title">{contest.title}</h3>
                 </div>
 
-                <div className="coming-soon-badge-large">
-                  <span className="badge-glow"></span>
-                  قريباً
-                </div>
+                {contest.comingSoon ? (
+                  <div className="coming-soon-badge-large">
+                    <span className="badge-glow"></span>
+                    قريباً
+                  </div>
+                ) : (
+                  <motion.button
+                    className="contest-link-button"
+                    onClick={() => openLink(contest.videoUrl)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span className="button-icon">🏁</span>
+                    <span className="button-text">لينك الكونتست</span>
+                  </motion.button>
+                )}
               </motion.div>
             ))}
           </div>
 
-          <motion.div 
-            className="contests-note"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            <div className="note-icon">🔔</div>
-            <p className="note-text">
-              المسابقات التدريبية ستكون متاحة قريباً. تابع التحديثات على الجروبات!
-            </p>
-          </motion.div>
+
         </motion.div>
 
         <div className="contests-main-background">

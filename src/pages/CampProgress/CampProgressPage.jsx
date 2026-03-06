@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import './CampProgressPage.css';
+import React from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import "./CampProgressPage.css";
 
 const CampProgressPage = () => {
   const navigate = useNavigate();
@@ -14,9 +14,9 @@ const CampProgressPage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <button 
+        <button
           className="back-button glass-card"
-          onClick={() => navigate('/')}
+          onClick={() => navigate("/")}
         >
           <span className="back-arrow">→</span>
           العودة للرئيسية
@@ -34,12 +34,12 @@ const CampProgressPage = () => {
             className="progress-icon"
             animate={{
               rotate: [0, 360],
-              scale: [1, 1.1, 1]
+              scale: [1, 1.1, 1],
             }}
             transition={{
               duration: 3,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           >
             🔄
@@ -49,7 +49,7 @@ const CampProgressPage = () => {
             <span className="text-gradient">وصلنا لفين في الكامب؟</span>
           </h1>
 
-          <motion.div 
+          <motion.div
             className="status-box"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ const CampProgressPage = () => {
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="current-status"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ const CampProgressPage = () => {
             <div className="status-card">
               <div className="status-badge">
                 <span className="badge-label">التوبيك الحالي</span>
-                <span className="badge-value">Arrays</span>
+                <span className="badge-value">Strings</span>
               </div>
               <p className="status-description">
                 الكمية اللي فاتت كلها موجودة في الموقع
@@ -82,27 +82,27 @@ const CampProgressPage = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="progress-bar-container"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
           >
             <div className="progress-bar">
-              <motion.div 
+              <motion.div
                 className="progress-fill"
                 initial={{ width: 0 }}
-                animate={{ width: '37.5%' }}
+                animate={{ width: "50%" }}
                 transition={{ delay: 1, duration: 1.5, ease: "easeOut" }}
               >
-                <span className="progress-percentage">37.5%</span>
+                <span className="progress-percentage">50%</span>
               </motion.div>
             </div>
             <div className="progress-labels">
               <span className="label completed">✅ Data Types</span>
               <span className="label completed">✅ Loops</span>
-              <span className="label current">🔥 Arrays</span>
-              <span className="label upcoming">⏳ Strings</span>
+              <span className="label completed">✅ Arrays</span>
+              <span className="label current">🔥 Strings</span>
               <span className="label upcoming">⏳ Functions</span>
               <span className="label upcoming">⏳ Complexity</span>
               <span className="label upcoming">⏳ STL</span>
@@ -110,7 +110,7 @@ const CampProgressPage = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="motivation-box"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -129,12 +129,12 @@ const CampProgressPage = () => {
             animate={{
               x: [0, 100, 0],
               y: [0, -50, 0],
-              scale: [1, 1.2, 1]
+              scale: [1, 1.2, 1],
             }}
             transition={{
               duration: 8,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
           <motion.div
@@ -142,13 +142,13 @@ const CampProgressPage = () => {
             animate={{
               x: [0, -80, 0],
               y: [0, 60, 0],
-              scale: [1, 1.3, 1]
+              scale: [1, 1.3, 1],
             }}
             transition={{
               duration: 10,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 1
+              delay: 1,
             }}
           />
         </div>
