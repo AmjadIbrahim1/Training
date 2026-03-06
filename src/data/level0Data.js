@@ -22,6 +22,7 @@ export const level0Topics = [
   },
   {
     id: "array",
+    
     title: "Array",
     emoji: "🔥",
     session: "https://youtu.be/WRcq-vwDePE?si=Fux8SCniHsEO1R4i",
