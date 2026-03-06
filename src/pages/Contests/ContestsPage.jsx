@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { contestsData } from '../../data/contestsData';
 import './ContestsPage.css';
 
+
 const ContestsPage = () => {
   const navigate = useNavigate();
 
