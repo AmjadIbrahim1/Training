@@ -33,4 +33,3 @@ export const contestsData = [
   }
 ];
 
-export default contestsData;
