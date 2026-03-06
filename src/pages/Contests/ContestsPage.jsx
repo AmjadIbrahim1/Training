@@ -1,15 +1,14 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { contestsData } from '../../data/contestsData';
-import './ContestsPage.css';
-
+import React from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { contestsData } from "../../data/contests-data.js";
+import "./ContestsPage.css";
 
 const ContestsPage = () => {
   const navigate = useNavigate();
 
   const openLink = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -20,9 +19,9 @@ const ContestsPage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <button 
+        <button
           className="back-button glass-card"
-          onClick={() => navigate('/')}
+          onClick={() => navigate("/")}
         >
           <span className="back-arrow">→</span>
           العودة للرئيسية
@@ -40,12 +39,12 @@ const ContestsPage = () => {
             className="contests-header-icon"
             animate={{
               rotate: [0, 10, -10, 0],
-              scale: [1, 1.1, 1]
+              scale: [1, 1.1, 1],
             }}
             transition={{
               duration: 3,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           >
             🏆
@@ -63,7 +62,7 @@ const ContestsPage = () => {
             {contestsData.map((contest, index) => (
               <motion.div
                 key={contest.id}
-                className={`contest-card ${contest.comingSoon ? 'coming-soon' : 'available'}`}
+                className={`contest-card ${contest.comingSoon ? "coming-soon" : "available"}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
@@ -92,8 +91,6 @@ const ContestsPage = () => {
               </motion.div>
             ))}
           </div>
-
-
         </motion.div>
 
         <div className="contests-main-background">
@@ -102,12 +99,12 @@ const ContestsPage = () => {
             animate={{
               x: [0, 100, 0],
               y: [0, -50, 0],
-              scale: [1, 1.2, 1]
+              scale: [1, 1.2, 1],
             }}
             transition={{
               duration: 8,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
           <motion.div
@@ -115,13 +112,13 @@ const ContestsPage = () => {
             animate={{
               x: [0, -80, 0],
               y: [0, 60, 0],
-              scale: [1, 1.3, 1]
+              scale: [1, 1.3, 1],
             }}
             transition={{
               duration: 10,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 1
+              delay: 1,
             }}
           />
         </div>
